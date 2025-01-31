@@ -38,7 +38,10 @@ class EmitCInlines final : EmitCBaseVisitorConst {
         iterateChildrenConst(nodep);
     }
     void visit(AstDumpCtl* nodep) override {
-        if (v3Global.opt.trace()) v3Global.needTraceDumper(true);
+        if (v3Global.opt.trace()) {
+            v3Global.needTraceDumper(true);
+            v3Global.traceDumperStart(v3Global.opt.traceStart());
+        }
         iterateChildrenConst(nodep);
     }
     void visit(AstNodeDistBiop* nodep) override {

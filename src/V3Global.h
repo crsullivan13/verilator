@@ -108,6 +108,7 @@ class V3Global final {
         = VWidthMinUsage::LINT_WIDTH;  // What AstNode::widthMin() is used for
 
     std::atomic_int m_debugFileNumber{0};  // Number to append to debug files created
+    int m_dumpStart{0};
     bool m_assertDTypesResolved = false;  // Tree should have dtypep()'s
     bool m_assertScoped = false;  // Tree is scoped
     bool m_assignsEvents = false;  // Design uses assignments on SystemVerilog Events
@@ -172,6 +173,8 @@ public:
     static string digitsFilename(int number);
     bool needTraceDumper() const { return m_needTraceDumper; }
     void needTraceDumper(bool flag) { m_needTraceDumper = flag; }
+    int  traceDumperStart() const { return m_dumpStart; }
+    void traceDumperStart(int time) { m_dumpStart = time; }
     bool dpi() const VL_MT_SAFE { return m_dpi; }
     void dpi(bool flag) { m_dpi = flag; }
     bool assignsEvents() const { return m_assignsEvents; }

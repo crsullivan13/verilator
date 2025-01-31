@@ -730,7 +730,9 @@ void EmitCSyms::emitSymImp() {
             puts("\nvoid " + symClassName() + "::_traceDump() {\n");
             // Caller checked for __Vm_dumperp non-nullptr
             puts("const VerilatedLockGuard lock(__Vm_dumperMutex);\n");
+            puts("if (VL_TIME_Q() > " + std::to_string(v3Global.traceDumperStart()) + ") {\n");
             puts("__Vm_dumperp->dump(VL_TIME_Q());\n");
+            puts("}\n");
             puts("}\n");
         }
 

@@ -335,6 +335,7 @@ private:
     VTimescale  m_timeOverrideUnit;  // main switch: --timescale-override
     int         m_traceDepth = 0;   // main switch: --trace-depth
     TraceFormat m_traceFormat;  // main switch: --trace or --trace-fst
+    int         m_traceStart = 0; // main switch: --trace-start
     int         m_traceMaxArray = 32;  // main switch: --trace-max-array
     int         m_traceMaxWidth = 256; // main switch: --trace-max-width
     int         m_traceThreads = 0; // main switch: --trace-threads
@@ -519,6 +520,7 @@ public:
     bool threadsDpiUnpure() const { return m_threadsDpiUnpure; }
     bool threadsCoarsen() const { return m_threadsCoarsen; }
     VOptionBool timing() const { return m_timing; }
+    int  traceStart() const { return m_traceStart; }
     bool trace() const { return m_trace; }
     bool traceCoverage() const { return m_traceCoverage; }
     bool traceParams() const { return m_traceParams; }
